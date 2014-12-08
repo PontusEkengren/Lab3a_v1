@@ -70,9 +70,10 @@ public class MainActivity extends Activity implements SensorEventListener{
 		 {
 	            if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 	                // the values you were calculating originally here were over 10000!
-	                x = (int) Math.pow(sensorEvent.values[1], 2); 
-	                y = (int) Math.pow(sensorEvent.values[2], 2);
+	                x = 3*((int) Math.pow(sensorEvent.values[1], 2))+100; 
+	                y = 3*((int) Math.pow(sensorEvent.values[2], 2))+100;
 
+	                
 	            }
 
 	            if (sensorEvent.sensor.getType() == Sensor.TYPE_ORIENTATION) {
@@ -104,12 +105,12 @@ public class MainActivity extends Activity implements SensorEventListener{
 	 public class CustomDrawableView extends View {
 			static final int width = 50;
 		    static final int height = 50;
-		   
+		     
 			
 		        public CustomDrawableView(Context context)
 		        {
 		            super(context);
-
+		            
 		            mDrawable = new ShapeDrawable(new OvalShape());
 		            mDrawable.getPaint().setColor(0xff74AC23);
 		            mDrawable.setBounds(x, y, x + width, y + height);
