@@ -8,16 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lab3a_v1.MainActivity" >
 
-     <activity
-            android:name="com.example.lab3a_v1"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-        </activity>
-        
-     
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="15dp"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/imgViewImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/textView1"
+         />
 
 </RelativeLayout>

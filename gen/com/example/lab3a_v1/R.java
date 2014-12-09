@@ -23,10 +23,27 @@ public final class R {
     }
     public static final class drawable {
         public static final int android1=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int flowercenter=0x7f020001;
+        public static final int flowerleft1=0x7f020002;
+        public static final int flowerleft2=0x7f020003;
+        public static final int flowerleft3=0x7f020004;
+        public static final int flowerleft4=0x7f020005;
+        public static final int flowerleft5=0x7f020006;
+        public static final int flowerleft6=0x7f020007;
+        public static final int flowerleft7=0x7f020008;
+        public static final int flowerright1=0x7f020009;
+        public static final int flowerright2=0x7f02000a;
+        public static final int flowerright3=0x7f02000b;
+        public static final int flowerright4=0x7f02000c;
+        public static final int flowerright5=0x7f02000d;
+        public static final int flowerright6=0x7f02000e;
+        public static final int flowerright7=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int action_settings=0x7f080002;
+        public static final int imgViewImage=0x7f080001;
+        public static final int textView1=0x7f080000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
