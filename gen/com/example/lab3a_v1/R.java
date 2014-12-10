@@ -39,6 +39,7 @@ public final class R {
         public static final int flowerright6=0x7f02000e;
         public static final int flowerright7=0x7f02000f;
         public static final int ic_launcher=0x7f020010;
+        public static final int nuke=0x7f020011;
     }
     public static final class id {
         public static final int action_settings=0x7f080002;

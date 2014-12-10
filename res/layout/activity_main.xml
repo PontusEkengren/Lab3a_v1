@@ -24,6 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignTop="@+id/textView1"
-         />
+        android:onClick="imageReset" />
 
 </RelativeLayout>
