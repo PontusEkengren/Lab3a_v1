@@ -181,7 +181,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 		    static final int height = 50;
 		     
 		    private Drawable flowerCenter,flowerRight1,flowerRight2, flowerRight3, flowerRight4, flowerRight5, flowerRight6, flowerRight7;
-		    private Drawable flowerLeft1,flowerLeft2, flowerLeft3, flowerLeft4, flowerLeft5, flowerLeft6, flowerLeft7, nuke;
+		    private Drawable flowerLeft1,flowerLeft2, flowerLeft3, flowerLeft4, flowerLeft5, flowerLeft6, flowerLeft7, flowerdead;
 			
 		        public CustomDrawableView(Context context){
 		            super(context);
@@ -194,7 +194,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 		            flowerRight5 = (Drawable) resource.getDrawable(R.drawable.flowerright5);
 		            flowerRight6 = (Drawable) resource.getDrawable(R.drawable.flowerright6);
 		            flowerRight7 = (Drawable) resource.getDrawable(R.drawable.flowerright7);
-		            nuke = (Drawable) resource.getDrawable(R.drawable.nuke);
+		            flowerdead = (Drawable) resource.getDrawable(R.drawable.flowerdead);
 		            flowerLeft1 = (Drawable) resource.getDrawable(R.drawable.flowerleft1);
 		            flowerLeft2 = (Drawable) resource.getDrawable(R.drawable.flowerleft2);
 		            flowerLeft3 = (Drawable) resource.getDrawable(R.drawable.flowerleft3);
@@ -229,110 +229,110 @@ public class MainActivity extends Activity implements SensorEventListener{
 		        	
 		        	
 		        	else if(shaker){
-		        		int iw = nuke.getIntrinsicWidth();
-		        		int ih = nuke.getIntrinsicHeight();
+		        		int iw = flowerDead.getIntrinsicWidth();
+		        		int ih = flowerDead.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
-		        		nuke.setBounds(bounds);
-		        		nuke.draw(canvas);
+		        		flowerDead.setBounds(bounds);
+		        		flowerDead.draw(canvas);
 		        	}*/
 		        	
 		        	if(isShake){
-		        		int iw = nuke.getIntrinsicWidth();
-		        		int ih = nuke.getIntrinsicHeight();
+		        		int iw = flowerdead.getIntrinsicWidth();
+		        		int ih = flowerdead.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
-		        		nuke.setBounds(bounds);
-		        		nuke.draw(canvas);
-		        	}else if(MainActivity.x >=0 && MainActivity.x < 10){
+		        		flowerdead.setBounds(bounds);
+		        		flowerdead.draw(canvas);
+		        	}else if(MainActivity.x >=0 && MainActivity.x < 12){
 		        		int iw = flowerCenter.getIntrinsicWidth();
 		        		int ih = flowerCenter.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerCenter.setBounds(bounds);
 		        		flowerCenter.draw(canvas);
-		        	}else if(MainActivity.x >=10 && MainActivity.x < 20){
+		        	}else if(MainActivity.x >=12 && MainActivity.x < 24){
 		        		int iw = flowerRight1.getIntrinsicWidth();
 		        		int ih = flowerRight1.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight1.setBounds(bounds);
 		        		flowerRight1.draw(canvas);
-		        	}else if(MainActivity.x >=20 && MainActivity.x < 30){
+		        	}else if(MainActivity.x >=24 && MainActivity.x < 36){
 		        		int iw = flowerRight2.getIntrinsicWidth();
 		        		int ih = flowerRight2.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight2.setBounds(bounds);
 		        		flowerRight2.draw(canvas);
-		        	}else if(MainActivity.x >=30 && MainActivity.x < 40){
+		        	}else if(MainActivity.x >=36 && MainActivity.x < 48){
 		        		int iw = flowerRight3.getIntrinsicWidth();
 		        		int ih = flowerRight3.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight3.setBounds(bounds);
 		        		flowerRight3.draw(canvas);
-		        	}else if(MainActivity.x >=40 && MainActivity.x < 50){
+		        	}else if(MainActivity.x >=48 && MainActivity.x < 60){
 		        		int iw = flowerRight4.getIntrinsicWidth();
 		        		int ih = flowerRight4.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight4.setBounds(bounds);
 		        		flowerRight4.draw(canvas);
-		        	}else if(MainActivity.x >=50 && MainActivity.x < 60){
+		        	}else if(MainActivity.x >=60 && MainActivity.x < 72){
 		        		int iw = flowerRight5.getIntrinsicWidth();
 		        		int ih = flowerRight5.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight5.setBounds(bounds);
 		        		flowerRight5.draw(canvas);
-		        	}else if(MainActivity.x >=60 && MainActivity.x < 70){
+		        	}else if(MainActivity.x >=72 && MainActivity.x < 84){
 		        		int iw = flowerRight6.getIntrinsicWidth();
 		        		int ih = flowerRight6.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight6.setBounds(bounds);
 		        		flowerRight6.draw(canvas);
-		        	}else if(MainActivity.x >=60){
+		        	}else if(MainActivity.x >=84){
 		        		int iw = flowerRight7.getIntrinsicWidth();
 		        		int ih = flowerRight7.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerRight7.setBounds(bounds);
 		        		flowerRight7.draw(canvas);
-		        	}else if(MainActivity.x <=0 && MainActivity.x > -10){
+		        	}else if(MainActivity.x <=0 && MainActivity.x > -12){
 		        		int iw = flowerCenter.getIntrinsicWidth();
 		        		int ih = flowerCenter.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerCenter.setBounds(bounds);
 		        		flowerCenter.draw(canvas);
-		        	}else if(MainActivity.x <=-10 && MainActivity.x > -20){
+		        	}else if(MainActivity.x <=-12 && MainActivity.x > -24){
 		        		int iw = flowerLeft1.getIntrinsicWidth();
 		        		int ih = flowerLeft1.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerLeft1.setBounds(bounds);
 		        		flowerLeft1.draw(canvas);
-		        	}else if(MainActivity.x <=-20 && MainActivity.x > -30){
+		        	}else if(MainActivity.x <=-24 && MainActivity.x > -36){
 		        		int iw = flowerLeft2.getIntrinsicWidth();
 		        		int ih = flowerLeft2.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerLeft2.setBounds(bounds);
 		        		flowerLeft2.draw(canvas);
-		        	}else if(MainActivity.x <=-30 && MainActivity.x > -40){
+		        	}else if(MainActivity.x <=-36 && MainActivity.x > -48){
 		        		int iw = flowerLeft3.getIntrinsicWidth();
 		        		int ih = flowerLeft3.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerLeft3.setBounds(bounds);
 		        		flowerLeft3.draw(canvas);
-		        	}else if(MainActivity.x <=-40 && MainActivity.x > -50){
+		        	}else if(MainActivity.x <=-48 && MainActivity.x > -60){
 		        		int iw = flowerLeft4.getIntrinsicWidth();
 		        		int ih = flowerLeft4.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerLeft4.setBounds(bounds);
 		        		flowerLeft4.draw(canvas);
-		        	}else if(MainActivity.x <=-50 && MainActivity.x > -60){
+		        	}else if(MainActivity.x <=-60 && MainActivity.x > -72){
 		        		int iw = flowerLeft5.getIntrinsicWidth();
 		        		int ih = flowerLeft5.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerLeft5.setBounds(bounds);
 		        		flowerLeft5.draw(canvas);
-		        	}else if(MainActivity.x <=-60 && MainActivity.x > -70){
+		        	}else if(MainActivity.x <=-72 && MainActivity.x > -84){
 		        		int iw = flowerLeft6.getIntrinsicWidth();
 		        		int ih = flowerLeft6.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerLeft6.setBounds(bounds);
 		        		flowerLeft6.draw(canvas);
-		        	}else if(MainActivity.x <=-70){
+		        	}else if(MainActivity.x <=-84){
 		        		int iw = flowerLeft7.getIntrinsicWidth();
 		        		int ih = flowerLeft7.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
@@ -340,7 +340,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 		        		flowerLeft7.draw(canvas);
 		        	}
 		        	
-		        	
+		        	 
 		        	shakeIndex++;
 		            invalidate();
 		            
