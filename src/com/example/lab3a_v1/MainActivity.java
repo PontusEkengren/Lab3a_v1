@@ -43,6 +43,11 @@ public class MainActivity extends Activity implements SensorEventListener{
     public int[] accel = new int[3];
     public float[] gravity = new float[3];
     ImageView image = null;
+    public boolean isShake = false;
+    long lastUpdate = 0;
+    float lastX = 0;
+    float lastY = 0;
+    float lastZ = 0;
     
 
     private SensorManager sensorManager = null;
@@ -81,6 +86,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			isShake=false;
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -90,10 +96,6 @@ public class MainActivity extends Activity implements SensorEventListener{
 	public void onAccuracyChanged(Sensor arg0, int arg1) {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	public void imageReset(View view){
-		shaker=false;
 	}
 
 	@Override
@@ -126,6 +128,22 @@ public class MainActivity extends Activity implements SensorEventListener{
 	                accel[0] = (int) (sensorEvent.values[0] - gravity[0]);
 	                accel[1] = (int) (sensorEvent.values[1] - gravity[1]);
 	                accel[2] = (int) (sensorEvent.values[2] - gravity[2]);
+	                long currTime = System.currentTimeMillis();
+	                
+	                if((currTime - lastUpdate) > 1000){
+	                	long diffTime = (currTime - lastUpdate);
+	                	lastUpdate = currTime;
+	                	
+	                	float speed = Math.abs(sensorEvent.values[0] + sensorEvent.values[1] + sensorEvent.values[2] - lastX - lastY - lastZ)/diffTime * 10000;
+	                	
+	                	if(speed > 350){
+	                		isShake = true;
+	                	}
+	                	
+	                	lastX = sensorEvent.values[0];
+	                	lastY = sensorEvent.values[1];
+	                	lastZ = sensorEvent.values[2];
+	                }
 	                
 	                 
 	                //System.out.println("X value: "+x);
@@ -190,7 +208,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 		        protected void onDraw(Canvas canvas){
 		        	int x = 50, y = 100;
 		        	
-		        	if(shakeIndex>9)
+		        	/*if(shakeIndex>9)
 		        		shakeIndex=0;
 		        	
 		        	shakeArrayX[shakeIndex] = (int) accel[0];
@@ -216,9 +234,15 @@ public class MainActivity extends Activity implements SensorEventListener{
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		nuke.setBounds(bounds);
 		        		nuke.draw(canvas);
-		        	}
+		        	}*/
 		        	
-		        	else if(MainActivity.x >=0 && MainActivity.x < 10){
+		        	if(isShake){
+		        		int iw = nuke.getIntrinsicWidth();
+		        		int ih = nuke.getIntrinsicHeight();
+		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
+		        		nuke.setBounds(bounds);
+		        		nuke.draw(canvas);
+		        	}else if(MainActivity.x >=0 && MainActivity.x < 10){
 		        		int iw = flowerCenter.getIntrinsicWidth();
 		        		int ih = flowerCenter.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
