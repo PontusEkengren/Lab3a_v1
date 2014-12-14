@@ -29,6 +29,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements SensorEventListener{
 
@@ -39,6 +40,7 @@ public class MainActivity extends Activity implements SensorEventListener{
     public static int z;
     public boolean shaker;
     public int shakeIndex;
+    public int j=0;
     public int[] shakeArrayX,shakeArrayY,shakeArrayZ;  
     public int[] accel = new int[3];
     public float[] gravity = new float[3];
@@ -120,25 +122,47 @@ public class MainActivity extends Activity implements SensorEventListener{
 	                gravity[0] = alpha * gravity[0] +(1-alpha) * (sensorEvent.values[0]);
 	                gravity[1] = alpha * gravity[1] +(1-alpha) * (sensorEvent.values[1]);//y
 	                gravity[2] = alpha * gravity[2] +(1-alpha) * (sensorEvent.values[2]);//z
-	                /*
-	                accel[0] = (int) (x * ff + accel[0] * (1.0 - ff));//x
-	                accel[1] = (int) (y * ff + accel[1] * (1.0 - ff));//y
-	                accel[2] = (int) (z * ff + accel[2] * (1.0 - ff));//z
-	                */
+	                
+	                //High pass filter
 	                accel[0] = (int) (sensorEvent.values[0] - gravity[0]);
 	                accel[1] = (int) (sensorEvent.values[1] - gravity[1]);
 	                accel[2] = (int) (sensorEvent.values[2] - gravity[2]);
 	                long currTime = System.currentTimeMillis();
 	                
+	                
+	                shakeArrayX[j]=accel[0];
+	                shakeArrayY[j]=accel[1];
+	                shakeArrayZ[j]=accel[2];
+	                
+	                j++;
+	                if(j>9)
+	                	j=0;
+	                
 	                if((currTime - lastUpdate) > 1000){
-	                	long diffTime = (currTime - lastUpdate);
+	                	//long diffTime = (currTime - lastUpdate);
 	                	lastUpdate = currTime;
 	                	
-	                	float speed = Math.abs(sensorEvent.values[0] + sensorEvent.values[1] + sensorEvent.values[2] - lastX - lastY - lastZ)/diffTime * 10000;
+	                	//float speed = Math.abs(sensorEvent.values[0] + sensorEvent.values[1] + sensorEvent.values[2] - lastX - lastY - lastZ)/diffTime * 10000;
 	                	
-	                	if(speed > 350){
+	                	int medelX=0; int medelY=0; int medelZ=0; 
+	                	for (int xaxis : shakeArrayX) { medelX+=Math.pow(xaxis, 2); }
+	                	for (int yaxis : shakeArrayY) { medelY+=Math.pow(yaxis, 2); }
+	                	for (int zaxis : shakeArrayZ) { medelZ+=Math.pow(zaxis, 2); }
+	                	
+	                	//Change this for making it more difficult to kill plant!
+	                	final int sens=80;//Acceleration sensitivity
+	                	
+	                	if((medelX/10)>sens){
+	                		isShake = true;
+	                	}else if((medelY/10)>sens){
+	                		isShake = true;
+	                	}else if((medelZ/10)>sens){
 	                		isShake = true;
 	                	}
+	                		/*
+	                	if(speed > 250){
+	                		isShake = true;
+	                	}*/
 	                	
 	                	lastX = sensorEvent.values[0];
 	                	lastY = sensorEvent.values[1];
@@ -147,7 +171,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 	                
 	                 
 	                //System.out.println("X value: "+x);
-	                Log.d("Lab3", "accel[0] value: "+accel[0]); 
+	                Log.d("Lab3", "accel[2] (Z) value: "+accel[2]); 
 	            }
 
 	            if (sensorEvent.sensor.getType() == Sensor.TYPE_ORIENTATION) {
