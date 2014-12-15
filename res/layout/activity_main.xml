@@ -8,22 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lab3a_v1.MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="15dp"
-        android:text="TextView" />
 
     <ImageView
-        android:id="@+id/imgViewImage"
+        android:id="@+id/imgAnimation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignTop="@+id/textView1"
-        android:onClick="imageReset" />
+        android:layout_marginTop="0dp" 
+        android:layout_marginLeft="0dp"/>
 
 </RelativeLayout>

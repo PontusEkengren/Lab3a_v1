@@ -14,6 +14,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
@@ -22,6 +23,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +46,6 @@ public class MainActivity extends Activity implements SensorEventListener{
     public int[] shakeArrayX,shakeArrayY,shakeArrayZ;  
     public int[] accel = new int[3];
     public float[] gravity = new float[3];
-    ImageView image = null;
     public boolean isShake = false;
     long lastUpdate = 0;
     float lastX = 0;
@@ -89,6 +90,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			isShake=false;
+			setContentView(mCustomDrawableView);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -154,10 +156,13 @@ public class MainActivity extends Activity implements SensorEventListener{
 	                	
 	                	if((medelX/10)>sens){
 	                		isShake = true;
+	                		animationLeaf();
 	                	}else if((medelY/10)>sens){
 	                		isShake = true;
+	                		animationLeaf();
 	                	}else if((medelZ/10)>sens){
 	                		isShake = true;
+	                		animationLeaf();
 	                	}
 	                		/*
 	                	if(speed > 250){
@@ -178,6 +183,15 @@ public class MainActivity extends Activity implements SensorEventListener{
 
 	            }
 	        }
+	}
+	
+	public void animationLeaf(){
+		setContentView(R.layout.activity_main);
+		ImageView leafImageView = (ImageView) findViewById(R.id.imgAnimation);
+		leafImageView.setBackgroundResource(R.drawable.leaffall);
+		AnimationDrawable leafAnimation = (AnimationDrawable) leafImageView.getBackground();
+		
+		leafAnimation.start();
 	}
 	
 	@Override
@@ -203,7 +217,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 	 public class CustomDrawableView extends View {
 			static final int width = 50;
 		    static final int height = 50;
-		     
+		    int x, y;
 		    private Drawable flowerCenter,flowerRight1,flowerRight2, flowerRight3, flowerRight4, flowerRight5, flowerRight6, flowerRight7;
 		    private Drawable flowerLeft1,flowerLeft2, flowerLeft3, flowerLeft4, flowerLeft5, flowerLeft6, flowerLeft7, flowerdead;
 			
@@ -230,7 +244,9 @@ public class MainActivity extends Activity implements SensorEventListener{
 		        }
 
 		        protected void onDraw(Canvas canvas){
-		        	int x = 50, y = 100;
+		        	
+		        	x = 30;
+		            y = 30;
 		        	
 		        	/*if(shakeIndex>9)
 		        		shakeIndex=0;
@@ -261,11 +277,12 @@ public class MainActivity extends Activity implements SensorEventListener{
 		        	}*/
 		        	
 		        	if(isShake){
-		        		int iw = flowerdead.getIntrinsicWidth();
+		        		/*int iw = flowerdead.getIntrinsicWidth();
 		        		int ih = flowerdead.getIntrinsicHeight();
 		        		Rect bounds = new Rect(x,y,x+iw, y+ih);
 		        		flowerdead.setBounds(bounds);
-		        		flowerdead.draw(canvas);
+		        		flowerdead.draw(canvas);*/
+		        		
 		        	}else if(MainActivity.x >=0 && MainActivity.x < 12){
 		        		int iw = flowerCenter.getIntrinsicWidth();
 		        		int ih = flowerCenter.getIntrinsicHeight();

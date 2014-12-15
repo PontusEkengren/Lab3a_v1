@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:oneshot="true">
+    <item android:drawable="@drawable/floweranimation1" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation3" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation4" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation5" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation6" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation7" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation8" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation9" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation10" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation11" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation12" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation13" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation14" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation15" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation16" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation17" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation18" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation19" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation20" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation21" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation22" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation23" android:duration="100" />
+    <item android:drawable="@drawable/floweranimation24" android:duration="100" />
+
+</animation-list>
